@@ -1,5 +1,0 @@
-@layer reset, tokens, original, brand, modern, utilities, overrides;
-
-@import url("./original.css") layer(original);
-@import url("./brand.css") layer(brand);
-@import url("./modern.css") layer(modern);
