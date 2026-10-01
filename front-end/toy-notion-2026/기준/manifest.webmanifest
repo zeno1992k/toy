@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "Zeno Notion",
+  "short_name": "Zeno Notion",
+  "description": "프레임워크 없이 Web Components로 구현한 Zeno 문서 편집기",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0c0914",
+  "theme_color": "#4913ec",
+  "icons": [
+    {
+      "src": "./assets/zeno-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  padding: 32px;
+  font-family: system-ui, sans-serif;
+}
+
+h1 {
+  color: #4913ec;
+}

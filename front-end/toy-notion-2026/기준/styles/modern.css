@@ -1,0 +1,93 @@
+zeno-notion-app,
+notion-sidebar,
+notion-navbar,
+notion-editor,
+notion-portals {
+  display: contents;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  z-index: 9999;
+  translate: 0 -160%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--panel);
+
+  &:focus-visible {
+    translate: 0;
+  }
+}
+
+button.item {
+  width: 100%;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+}
+
+.sidebar.is-collapsed + .peek-btn {
+  display: grid;
+}
+
+.tree-row .ghost:focus-visible {
+  opacity: 1;
+}
+
+.caret:disabled {
+  cursor: default;
+}
+
+.import-label {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  & input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.favorites-header {
+  justify-content: space-between;
+  margin-block-end: 8px;
+
+  & h3 { margin: 0; }
+}
+
+.modal-message { margin-block: 8px 12px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="application-name" content="Zeno Notion">
+    <meta name="apple-mobile-web-app-title" content="Zeno Notion">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Vanilla JavaScript와 Web Components로 구현한 Zeno Notion 문서 편집기">
+    <meta id="themeColorMeta" name="theme-color" content="#0c0914">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zeno Notion">
+    <meta property="og:title" content="Zeno Notion">
+    <meta property="og:description" content="프레임워크 없이 Modern HTML, CSS, JavaScript로 만든 나만의 문서 편집기">
+    <meta property="og:image" content="./assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Zeno 로고">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zeno Notion">
+    <meta name="twitter:description" content="Modern Web Components로 만든 Vanilla 문서 편집기">
+    <meta name="twitter:image" content="./assets/og-image.png">
+    <title>Zeno Notion — Modern Vanilla Workspace</title>
+
+    <link rel="icon" href="./assets/favicon.ico" sizes="any">
+    <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles/main.css">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Zeno Notion",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web",
+        "description": "Vanilla JavaScript와 Web Components로 구현한 학습용 문서 편집기",
+        "image": "./assets/og-image.png"
+      }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#editor">본문 편집기로 건너뛰기</a>
+    <zeno-notion-app>
+      <noscript>이 앱을 사용하려면 JavaScript를 활성화해야 합니다.</noscript>
+    </zeno-notion-app>
+  </body>
+</html>
