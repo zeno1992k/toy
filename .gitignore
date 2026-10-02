@@ -3,6 +3,22 @@ reference/
 .기획.md
 ai-log/
 
+# Dependencies, build outputs, and deployment metadata
+node_modules/
+dist/
+dist-ssr/
+.next/
+.vercel/
+
+# Local environment values (keep a value-free example if needed)
+.env
+.env.*
+!.env.example
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+
 # Local AI assistant settings, instructions, and work notes
 .claude/
 .codex/

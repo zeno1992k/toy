@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* 사이트 전체의 기본 스타일 */
 :root {
   --color-background: #ffffff;

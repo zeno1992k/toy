@@ -3,16 +3,50 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="나만의 문서를 작성하고 관리하는 Zeno Notion">
-
+    <meta name="description" content="toy Zeno Notion">
     <title>Zeno Notion</title>
-
     <link rel="stylesheet" href="./styles/main.css">
     <script type="module" src="./src/main.js"></script>
   </head>
 
   <body>
-    <h1>Zeno Notion</h1>
-    <p>문서 편집기</p>
+    <div id="APP" class="app">
+      <aside id="SIDEBAR" class="sidebar">
+        <header class="sidebar-header">
+          <img src="./assets/icon.png" alt="" class="brand-logo">
+          <h2>Zeno Notion</h2>
+          <p>개인 작업 공간</p>
+        </header>
+
+        <div class="sidebar-actions">
+          <button id="SEARCH_BTN" type="button">검색</button>
+          <button id="SETTINGS_BTN" type="button">설정</button>
+          <button id="NEW_PAGE_BTN" type="button">새 페이지</button>
+        </div>
+
+        <nav aria-label="문서 목록">
+          <h3>모든 문서</h3>
+          <ul class="doc-list">
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#study-note">학습노트</a></li>
+          </ul>
+        </nav>
+
+        <footer class="sidebar-footer">
+          <button id="TRASH_BTN" type="button">휴지통</button>
+        </footer>
+      </aside>
+
+      <main class="main">
+        <header class="navbar">
+          <p>zeno Notion / Welcome</p>
+        </header>
+
+        <article class="doc-canvas">
+          <h1>Welcome</h1>
+          <p>나만의 문서 편집기를 만들어 봅니다.</p>
+        </article>
+      </main>
+    </div>
   </body>
 </html>

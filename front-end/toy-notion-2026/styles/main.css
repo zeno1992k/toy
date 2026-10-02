@@ -1,9 +1,73 @@
-body {
-  margin: 0;
-  padding: 32px;
-  font-family: system-ui, sans-serif;
+:root {
+  --color-brand: #4913ec;
+  --color-text: #222222;
+  --color-text-muted: #666666;
+  --color-bg: #ffffff;
+  --color-surface: #f6f6f8;
+
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
 }
 
-h1 {
-  color: #4913ec;
+/* 요소의 너비에 패딩과 테두리를 포함 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 브라우저가 넣는 기본 여백 초기화 */
+:where(body,h1,h2,h3,p,ul) {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.doc-list {
+  list-style: none;
+}
+
+.sidebar {
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+}
+
+.main {
+  padding: var(--space-lg);
+}
+
+.brand-logo {
+  width: 40px;
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-header {
+  margin-bottom: var(--space-md);
+}
+
+.sidebar-header p {
+  color: var(--color-text-muted);
+}
+
+h1,
+.sidebar-header h2 {
+  color: var(--color-brand);
 }
