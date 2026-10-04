@@ -1,8 +1,9 @@
 // Header.jsx
-import './Content.css';
+import VideoCard from './VideoCard';
+
 function Content({keyword, videos}){
   return(
-    <main className="content">
+    <main className="[grid-area:content] min-w-0 p-6">
       {keyword !=='' && <p>검색어: {keyword}</p>}
       <div role="group" aria-label="영상 카테고리">
         <button type="button">전체</button>
@@ -10,9 +11,11 @@ function Content({keyword, videos}){
         <button type="button">게임</button>
       </div>
 
-      <ul>
+      <ul className="grid grid-cols-3 gap-6">
         {videos.map((video)=>
-          <li key={video.id}>{video.snippet.title}</li>
+          <li key={video.id}>
+            <VideoCard video={video}/>
+          </li>
         )}
       </ul>
 

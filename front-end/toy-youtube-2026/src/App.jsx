@@ -16,7 +16,7 @@ function App(){
         const params = new URLSearchParams({
           part:'snippet',
           chart:'mostPopular',
-          maxResults: '10',
+          maxResults: '9',
           regionCode: 'KR',
           key: apiKey,
         });

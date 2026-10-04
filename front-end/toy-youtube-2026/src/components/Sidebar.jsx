@@ -1,7 +1,6 @@
-import './Sidebar.css';
 function Sidebar(){
   return (
-    <aside className="sidebar">
+    <aside className="[grid-area:sidebar] p-4  border-r border-gray-200">
       <div>{/* 프로필 */}</div>
 
       <nav aria-label="구독 목록">

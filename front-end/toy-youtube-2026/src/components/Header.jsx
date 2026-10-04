@@ -1,4 +1,3 @@
-import './Header.css';
 import { useState } from 'react';
 function Header({ onSearch} ){
   const [searchText, setSearchText] = useState('');
@@ -8,10 +7,9 @@ function Header({ onSearch} ){
     const query = searchText.trim();
     onSearch(query);
   }
-
   return (
-  <header className="header">
-    <h1 className="brand">
+  <header className="[grid-area:header] flex items-center justify-between px-6 py-4 border-b border-gray-200">
+    <h1 className="inline-flex items-center gap-2.5">
       <a className="brand-link" href="/">
         <img src="/icon.png" alt="" width="30" height="30"/>
         <span className="">zenotube</span>

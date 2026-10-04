@@ -1,0 +1,11 @@
+:root {
+  --color-brand: #4913ec;
+  --color-text: #222222;
+  --color-text-muted: #666666;
+  --color-bg: #ffffff;
+  --color-surface: #f6f6f8;
+
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+}
