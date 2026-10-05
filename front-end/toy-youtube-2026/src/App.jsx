@@ -11,23 +11,11 @@ function App(){
     const controller = new AbortController();
     async function loadVideos(){
       try{
-        const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY;
-        if(!apiKey) throw new Error('API 키 환경변수를 확인해 주세요.');
-        const params = new URLSearchParams({
-          part:'snippet',
-          chart:'mostPopular',
-          maxResults: '9',
-          regionCode: 'KR',
-          key: apiKey,
-        });
-
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?${params}`,{ signal: controller.signal })
+        const response = await fetch('/api/videos', { signal: controller.signal, });
         const data = await response.json();
-
         if(!response.ok){
           throw new Error(data.error?.message ?? "영상 요청 실패");
         }
-
         setVideos(data.items ?? []);
       }catch(error){
         if (error.name !== 'AbortError'){
