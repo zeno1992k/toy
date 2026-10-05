@@ -1,22 +1,43 @@
 import process from 'node:process';
 
-export async function GET(){
+export async function GET(request){
   try{
+    const url = new URL(request.url);
+    const keyword = (url.searchParams.get('q') ?? '').trim();
     const apiKey = process.env.YOUTUBE_API_KEY;
     if(!apiKey) throw new Error('API 키가 없습니다.');
     const params = new URLSearchParams({
       part: 'snippet',
-      chart: 'mostPopular',
       maxResults: '25',
       regionCode: 'KR',
       key: apiKey,
     });
 
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?${params}`);
-    if (!response.ok) throw new Error('YouTube 요청 실패');
+    let endpoint = 'videos';
 
+    if(keyword !==''){
+      endpoint = 'search';
+      params.set('q',keyword);
+      params.set('type','video');
+    }else{
+      params.set('chart','mostPopular');
+    }
+    const response = await fetch( `https://www.googleapis.com/youtube/v3/${endpoint}?${params}` );
+
+    if (!response.ok) throw new Error('YouTube 요청 실패');
     const data = await response.json();
-    return Response.json({ items: data.items ?? [] });
+    let items = data.items ?? [];
+
+    if (keyword !== '') {
+      items = items.map((video) => {
+        return {
+          id: video.id.videoId,
+          snippet: video.snippet,
+        };
+      });
+    }
+
+    return Response.json({ items: items });
 
   }catch{
     return Response.json(

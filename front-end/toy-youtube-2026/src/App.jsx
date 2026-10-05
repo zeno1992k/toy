@@ -11,7 +11,8 @@ function App(){
     const controller = new AbortController();
     async function loadVideos(){
       try{
-        const response = await fetch('/api/videos', { signal: controller.signal, });
+        const params = new URLSearchParams({q:keyword});
+        const response = await fetch(`/api/videos?${params}`, { signal: controller.signal, });
         const data = await response.json();
         if(!response.ok){
           throw new Error(data.error?.message ?? "영상 요청 실패");
@@ -25,7 +26,7 @@ function App(){
     }
     loadVideos();
     return () => controller.abort();
-  },[]);
+  },[keyword]);
 
   return(
     <div className="app">
