@@ -2,10 +2,26 @@ import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 function App(){
   const [keyword, setKeyword] = useState('');
   const [videos, setVideos] = useState([]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarDialogRef = useRef(null);
+
+  function toggleSidebar(){
+    setIsSidebarOpen((prev)=> !prev);
+  }
+
+  function closeSidebar(){
+    setIsSidebarOpen(false);
+  }
+
+  function handleDialogClick(event){
+    if(event.target === event.currentTarget){
+      closeSidebar();
+    }
+  }
 
   useEffect(()=>{
     const controller = new AbortController();
@@ -28,11 +44,34 @@ function App(){
     return () => controller.abort();
   },[keyword]);
 
+  useEffect(()=>{
+    const dialog = sidebarDialogRef.current;
+    if(isSidebarOpen){
+      dialog.showModal();
+    }else{
+      dialog.close();
+    }
+  },[isSidebarOpen]);
   return(
     <div className="app">
-      <Header onSearch={setKeyword}></Header>
+      <Header onSearch={setKeyword} onMenuToggle={toggleSidebar} isSidebarOpen={isSidebarOpen}></Header>
       <Sidebar></Sidebar>
       <Content keyword={keyword} videos={videos}></Content>
+      <dialog
+        id="SIDEBAR_DIALOG"
+        ref={sidebarDialogRef}
+        className="sidebar-dialog"
+        aria-label="메뉴"
+        onClick={handleDialogClick}
+        onClose={closeSidebar}
+      >
+        <div className="sidebar-panel">
+          <button type="button" onClick={closeSidebar} className="m-4">
+            메뉴 닫기
+          </button>
+          <Sidebar />
+        </div>
+      </dialog>
     </div>
   );
 }

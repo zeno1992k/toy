@@ -11,7 +11,7 @@ function Content({keyword, videos}){
         <button type="button">게임</button>
       </div>
 
-      <ul className="grid grid-cols-5 gap-6">
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-6">
         {videos.map((video)=>
           <li key={video.id}>
             <VideoCard video={video}/>
