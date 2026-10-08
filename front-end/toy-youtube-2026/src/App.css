@@ -55,3 +55,31 @@
   overflow-y: auto;
   background: white;
 }
+
+.header-actions {
+  display: none;
+}
+
+.header-search {
+  display: flex;
+  flex: 1;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 800px) {
+  .header-actions {
+    display: flex;
+  }
+
+  .header-search {
+    display: none;
+    flex-basis: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .header-search.is-open {
+    display: flex;
+  }
+}

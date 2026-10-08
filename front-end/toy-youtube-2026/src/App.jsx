@@ -3,12 +3,20 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 import { useState,useEffect,useRef } from 'react';
+import { Routes, Route, useNavigate } from 'react-router';
+import VideoDetail from './components/VideoDetail';
+
 function App(){
   const [keyword, setKeyword] = useState('');
   const [videos, setVideos] = useState([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarDialogRef = useRef(null);
+  const navigate = useNavigate();
 
+  function handleSearch(query){
+    setKeyword(query);
+    navigate('/')
+  }
   function toggleSidebar(){
     setIsSidebarOpen((prev)=> !prev);
   }
@@ -54,9 +62,13 @@ function App(){
   },[isSidebarOpen]);
   return(
     <div className="app">
-      <Header onSearch={setKeyword} onMenuToggle={toggleSidebar} isSidebarOpen={isSidebarOpen}></Header>
+      <Header onSearch={handleSearch} onMenuToggle={toggleSidebar} isSidebarOpen={isSidebarOpen}></Header>
       <Sidebar></Sidebar>
-      <Content keyword={keyword} videos={videos}></Content>
+      <Routes>
+        <Route path="/" element={<Content keyword={keyword} videos={videos} />} />
+        <Route path="/watch/:videoId" element={<VideoDetail/>} />
+      </Routes>
+
       <dialog
         id="SIDEBAR_DIALOG"
         ref={sidebarDialogRef}
