@@ -56,6 +56,43 @@
   background: white;
 }
 
+/* 모든 사이드바 메뉴 행의 공통 모양 */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* 사용할 수 있는 메뉴에 마우스를 올렸을 때 */
+.sidebar-item:not(:disabled):hover {
+  background-color: var(--color-surface);
+}
+
+/* 현재 페이지에 해당하는 메뉴 */
+.sidebar-item[aria-current="page"] {
+  background-color: var(--color-surface);
+  font-weight: 600;
+}
+
+/* 키보드로 이동해 온 메뉴 */
+.sidebar-item:focus-visible {
+  background-color: #e5e7eb;
+  outline: 2px solid var(--color-muted);
+  outline-offset: -2px;
+}
+
+/* 아직 사용할 수 없는 메뉴 */
+.sidebar-item:disabled {
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
 .header-actions {
   display: none;
 }
@@ -73,8 +110,8 @@
   }
 
   .header-search {
-    display: none;
-    flex-basis: 100%;
+    display: flex;
+    flex-basis: 0;
     max-width: none;
     margin: 0;
   }
