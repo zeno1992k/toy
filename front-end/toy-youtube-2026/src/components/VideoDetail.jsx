@@ -6,6 +6,7 @@ function VideoDetail(){
   return(
     <main className="[grid-area:content] min-w-0 p-6">
       <Link to="/" className="mb-4 inline-block">목록으로</Link>
+      <p>영상 ID : {videoId}</p>
       <VideoPlayer videoId={videoId} title="영상 재생"/>
     </main>
   )
